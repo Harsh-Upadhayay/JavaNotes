@@ -48,7 +48,6 @@
   
     ```java
 
-
     double a = 50.5089898564;
     System.out.println("Double " + a);
 
@@ -81,6 +80,17 @@ public class TestHelloWorld {
 
 ```
 
-* Package : Something that can group multiple related artifacts together. **First line of a java program**
-
-*
+* package : Something that can group multiple related artifacts together. **First line of a java program**  
+* public : **Access specifier** Allows the class to be accessible to every other file of this project.
+* class : class keyword.
+* class name *(TestHelloWorld)* here : This public class name must match with the file name.
+* main method : For executing any class in java a main method is needed. It is the entry method of java.
+  * public : main method has to be public because **java runtime** has to be able to access this method.
+  * static : to be able to run this class without creating an object of this class.
+  * void : return type *only void accepted*  
+  * main : function name.
+  * String arg[] : command line arguments.
+* System : Class containing methods for standard i/o & errors.
+* out : stream for printing the standard output.
+* println : prints a string and terminates the line;
+* System.out.println : system class uses the output stream to print something on the consol using the println method.
