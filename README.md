@@ -250,6 +250,14 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
     list = new LinkedList<String>(); //size taken by default.
     ```
 
+* Stack
+  * Derived form list.
+
+    ```java
+    Stack<String> stack;
+    stack = new Stack<>();
+    ```
+
 ## Set interface
 
 >Unique elements, unordered storage.
