@@ -14,12 +14,13 @@ public class StackDemo {
 		stack.push("You");
 		
 		System.out.println(stack);
+		
 		for(String x : stack) {
 			System.out.print(x + " ");
 		}
 		System.out.println();
 		
-		stack.pop();
-		System.out.print(stack);
+		String x = stack.pop();
+		System.out.print("Popped Element : " + x + "\n" + stack);
 	}
 }
