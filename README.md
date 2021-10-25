@@ -1,5 +1,12 @@
 # Java Notes
 
+## Noteworthy Points
+
+* If a variable is left uninitialized then java initializes it with a default value
+  * for int it's 0.
+
+* If no constructor is defined by programmer then java provides a default constructor.
+
 ## Data types
 
 ### Primitive Data types
@@ -324,4 +331,15 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
 * PriorityQueue
   * FIFO.
   * Elements sorted according to their natural order.
-  * sysout doesn't show the natural sorting order.
+  * System.out doesn't show the natural sorting order.
+
+## Classes and objects
+
+* Everything is exactly similar to cpp except for these two points.
+  * object creation is via **new** keyword.
+
+   ```java
+   className objectName = new className(constructorArguments);
+  ```
+  
+  * accessSpecifier is needed for every method individually.
