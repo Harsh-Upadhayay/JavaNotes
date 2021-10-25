@@ -250,14 +250,6 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
     list = new LinkedList<String>(); //size taken by default.
     ```
 
-* Stack
-  * Derived form list.
-
-    ```java
-    Stack<String> stack;
-    stack = new Stack<>();
-    ```
-
 ## Set interface
 
 >Unique elements, unordered storage.
@@ -318,3 +310,18 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
   
 * LinkedHashMap : Derives from HashMap, elements are stored in the order of their insertion.
 * HashTable : Thread safe implementation of hashMap.
+
+## Stack and Queue
+
+* Stack
+  * LIFO.
+
+    ```java
+    Stack<String> stack;
+    stack = new Stack<>();
+    ```
+
+* PriorityQueue
+  * FIFO.
+  * Elements sorted according to their natural order.
+  * sysout doesn't show the natural sorting order.
