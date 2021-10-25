@@ -287,7 +287,13 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
   
 ### Classes of Map
 
-* TreeMap : Elements(Key value pair) are stored in the natural sorting order of keys.
+* TreeMap : Elements(Key value pair) are stored in the natural sorting order of keys.  
+  
+  * ```java
+    TreeMap<Integer, String> treeMap;
+    treeMap = new TreeMap<>();
+    ```
+
 * HashMap : Random Storage of elements.
 
   * ```java
