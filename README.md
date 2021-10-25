@@ -94,3 +94,148 @@ public class TestHelloWorld {
 * out : stream for printing the standard output.
 * println : prints a string and terminates the line;
 * System.out.println : system class uses the output stream to print something on the consol using the println method.
+
+## Arrays
+
+>Contiguous memory locations of any specific data type.
+
+### One Dimension Array
+
+```java
+int[] anArray;
+anArray = new int[10];
+```
+
+### Two Dimension Array
+
+```java
+int arr1[][] = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
+int[][] arr2 = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
+```
+
+* {{}, {}, {}} : This structure is necessary.
+
+## Operators
+
+* Arithmetic
+  * '+' : Addition/Concatenation.
+  * '-' : Subtraction.
+  * '*' : Multiplication.
+  * '/' : Division.
+  * '%' : Modulus.  
+* Unary
+  * '+'  : Turns integer positive. *Positive by default*
+  * '-'  : Turns integer negative.
+  * '++' : Increment. *Postfix and Prefix apply*
+  * '--' : Decrement. *Postfix and Prefix apply*
+  * '!'  : Logical Negation.  
+* Bitwise
+  * '&'   : and **Not Short Circuit**
+  * '|'   : or
+  * '>>'  : Signed right shift.
+  * '<<'  : Signed left shift.
+  * '>>>' : Unsigned right shift.
+  * '<<<' : Unsigned left shift.
+  * '~'   : Negation.
+* Logical
+  * '&&' / 'AND' : Logical and **Short Circuit**.
+  * '||' / 'OR'  : Logical or **Short Circuit**.
+* Comparison/ Relational
+  * '==' : equal to
+  * '!=' : not equal to
+  * '>'  : greater than
+  * '>=' : greater than or equal to
+  * '<'  : less than
+  * '<=' : less than or equal to
+* Ternary Operator  
+ *(condition) ***?*** (execute if true) ***:*** (execute if false)*  
+
+```java
+Max = (a > b) ? (a) : (b);
+```
+
+## Control Flow
+
+* If else
+
+```java
+if (testScore >= 90){
+    grade = 'A';
+}
+else if (testScore >= 80){
+    grade = 'B';
+}
+else if (testScore >= 70){
+    grade = 'C';
+}
+else if (testScore >= 60){
+    grade = 'D';
+}
+else {
+    grade = 'F';
+}
+```
+
+*Same goes for nested if.*
+
+* Do While Loop
+
+```java
+do {
+    Statements
+} while (Expression);
+```
+
+* While Loop
+
+```java
+while (Expression) {
+    statement.
+}
+```
+
+* For Loop
+
+```java
+for (initialization; termination; increment/decrement){
+    statements
+}
+```
+
+* Enhanced for loop  
+  *Used for iterating over a collection*
+
+```java
+int[] collection = {1,2,3};
+for(int item : collection) {
+    system.out.print("item" + item);
+}
+
+int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
+    for(int i[] : arr) {
+        for(int j : i)
+            System.out.print(j + " ");
+        System.out.println();
+    }
+```
+
+## Java Collections
+
+* Class
+  * Array List : Dynamic Array, supports indexing.
+  * Linked List : linear access.
+  * Set : unique elements.  
+  * Stack
+  * Priority Queue
+  * Vector : Same like Array List but Thread safe.
+
+## List interface
+
+* ArrayList
+
+```java
+List<Integer> arrayList; //Base Class name (not necessary)
+arrayList = new ArrayList<Integer>(5); // Actual Class name
+```
+
+ 
