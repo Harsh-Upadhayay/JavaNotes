@@ -231,7 +231,7 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
 
 ## List interface
 
->Dynamic size, linear storage.
+>Dynamic size, stored according to the order in which elements are inserted.
 
 * ArrayList
 
@@ -256,6 +256,7 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
 
 * HashSet
   * Derived form Set.
+  * Random Storage.
 
   ```java
    
@@ -264,3 +265,14 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
   ```
 
   * All the duplicates are rejected. *Only the first element is inserted*
+
+* TreeSet
+  * Derived form Set.
+  * Used when natural order/hierarchy of elements needs to be maintained.
+  * Elements are stored in the natural order of sequence of their data type *(for eg. in String a will come before c)*, **irrespective of the order in which they were inserted**.
+
+  ```java
+   
+  Set<String> treeSet;
+  treeSet = new TreeSet<String>(5);
+  ```
