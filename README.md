@@ -231,11 +231,36 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
 
 ## List interface
 
+>Dynamic size, linear storage.
+
 * ArrayList
 
-```java
-List<Integer> arrayList; //Base Class name (not necessary)
-arrayList = new ArrayList<Integer>(5); // Actual Class name
-```
+  * Derived form list.
 
- 
+    ```java
+    List<Integer> arrayList; //Base Class name (not necessary)
+    arrayList = new ArrayList<Integer>(5); // Actual Class name
+    ```
+
+* LinkedList
+  * Derived from list.
+
+    ```java
+    List<String> list;
+    list = new LinkedList<String>(); //size taken by default.
+    ```
+
+## Set interface
+
+>Unique elements, unordered storage.
+
+* HashSet
+  * Derived form Set.
+
+  ```java
+   
+  Set<String> hashSet;
+  hashSet = new HashSet<String>(5);
+  ```
+
+  * All the duplicates are rejected. *Only the first element is inserted*

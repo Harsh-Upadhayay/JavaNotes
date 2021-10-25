@@ -1,0 +1,12 @@
+public class TypeCasting {
+	public static void main(string args[]) {
+		double a = 50.50;
+		System.out.println("Double " + a);
+		
+		float b = (float)a;
+		System.out.println("Float : " + b);
+		
+		int c = (int)a;
+		System.out.println("Int : " + c);
+	}
+}
