@@ -14,6 +14,6 @@ public class TreeSetDemo {
 		treeSet.add("Hp");
 		treeSet.add("Hola");
 		
-		System.out.print(treeSet);
+		System.out.print(treeSet); //Elements Stored Lexicographically.
 	}
 }

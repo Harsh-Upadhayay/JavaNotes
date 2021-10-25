@@ -276,3 +276,31 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
   Set<String> treeSet;
   treeSet = new TreeSet<String>(5);
   ```
+
+## Map  
+
+* Key value pair storage.
+* Isn't iterable coz isn't derived form iterable class of java.
+* Keys will be unique, values can be duplicate.
+* Uses **Set** class to store keys.
+* Uses **List** class to store values.
+  
+### Classes of Map
+
+* TreeMap : Elements(Key value pair) are stored in the natural sorting order of keys.
+* HashMap : Random Storage of elements.
+
+  * ```java
+    Map<String, Integer> map;
+    map = new HashMap<String, Integer>();
+    ```
+
+  * Util function :
+    * map.put(key, value);
+    * map.size();
+    * map.containsKey(key);
+    * map.keySet(); *returns iterable object containing all the keys*.
+    * map.entrySet(); *returns iterable object containing all the key, value pair entries of the set*.
+  
+* LinkedHashMap : Derives from HashMap, elements are stored in the order of their insertion.
+* HashTable : Thread safe implementation of hashMap.
