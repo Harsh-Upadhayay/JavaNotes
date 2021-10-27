@@ -346,4 +346,50 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
   
 ## Streams
 
->Concept similar to streaming Netflix rather than Downloading videos.
+>Concept similar to streaming Netflix rather than Downloading videos, more efficient in using multicore capability of processors.
+
+* Using stream to create a list containing squares of element of other list.
+
+  * sqSet contains set of squares of list.
+  * sqList contains list of  squares of list.
+
+```java
+  Set<Integer> sqSet = list.stream().map(x -> x*x/100).collect(Collectors.toSet());
+  List<Integer> sqList = list.stream().map(x -> x*x/100).collect(Collectors.toList());
+```
+
+* filter() : Used whenever a conditional logic or filtering is done on a stream.  
+  * Condition can be any if condition.
+  * Once the filter method has completed it's execution after that only the methods which  have satisfied the condition will be left in the stream.  
+  
+  ```java
+    List<String> filteredResult = languages.stream().filter(s -> s.startsWith("p")).collect(Collectors.toList());  
+  ```  
+
+* sorted() : Sorts a collection.
+  
+  ```java
+   List<String> SortedList = 
+   languages.stream().sorted().collect(Collectors.toList());
+   System.out.println(SortedList);
+  ```
+
+* forEach() : Iterate over all the elements of the Collection.
+  
+  ```java
+    languages.stream().forEach(elem -> {
+      System.out.println(elem);
+    });
+  ```
+
+* reduce() : Whenever the complete collection representation is to be converted to a single result then reduced() method is used.  
+  * Identity : An element that is the initial value of reduction operation and the default result if the stream is empty. *0 here*
+  * Accumulator : a function that takes two parameters :
+    * a partial result of the reduction operation.
+    * and the next element of hte stream.
+    * also the definition of function using lambda functions.
+  * Combiner : A function used to combine the partial result of hte reduction operation when the reduction is parallelized, or when there's a mismatch between the types of the accumulator. **NOT USED HERE**.
+
+  ```java
+  int sum = numList.stream.reduce(0, (prevSum, nextElement) -> prevSum + nextElement);
+  ```
