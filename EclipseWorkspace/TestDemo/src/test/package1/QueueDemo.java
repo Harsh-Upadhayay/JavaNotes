@@ -16,12 +16,13 @@ public class QueueDemo {
 		
 		System.out.println(queue);
 		
+		
 		for(String x : queue) {
 			System.out.print(x + " ");
 		}
 		System.out.println();
 		
-		//String x = queue.pop();
-		//System.out.print("Popped Element : " + x + "\n" + queue);
+		String x = queue.poll();
+		System.out.print("Popped Element : " + x + "\n" + queue);
 	}
 }

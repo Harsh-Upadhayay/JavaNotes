@@ -341,5 +341,9 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
    ```java
    className objectName = new className(constructorArguments);
   ```
-  
+
   * accessSpecifier is needed for every method individually.
+  
+## Streams
+
+>Concept similar to streaming Netflix rather than Downloading videos.

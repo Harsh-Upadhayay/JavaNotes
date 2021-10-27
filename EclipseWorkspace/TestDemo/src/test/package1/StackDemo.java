@@ -1,6 +1,5 @@
 package test.package1;
 import java.util.Stack;
-import java.util.List;
 
 public class StackDemo {
 	public static void main(String ars[]) {
