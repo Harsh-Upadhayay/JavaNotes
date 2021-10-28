@@ -400,6 +400,8 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
 
 ### Inheritance
 
+> Java doesn't support multiple inheritance.
+
 * **Syntax**
 
 ```java
@@ -413,3 +415,21 @@ accessSpecifier class derivedClass extends baseClass {
 
 * extends : Keyword used to derive class form base class.
 * super : Invokes the base class constructor with the supplied arguments. **Must be the first line of derived class constructor**
+* When an object of child class is declared, then java automatically calls the constructor of the child class as well as that of the **Parent Class**. even if it isn't called by the programmer explicitly *Using super*.
+
+### Abstraction
+
+> Hiding details of implementation.
+
+* Abstract class can't be instantiated, but they can be subclassed.
+* An abstract class must have atleast one abstract method.
+* Abstract class can also have concrete methods.
+* Abstract methods are declared without an implementation, it is the responsibility of child class which inherits the abstract method to define it.
+* The child class must provide definition of all the inherited abstract methods.
+
+```java
+abstract void moveTo(double deltaX, double deltaY);
+```
+
+**Check codes for clarification**
+ 
