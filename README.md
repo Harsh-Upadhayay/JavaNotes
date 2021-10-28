@@ -431,5 +431,4 @@ accessSpecifier class derivedClass extends baseClass {
 abstract void moveTo(double deltaX, double deltaY);
 ```
 
-**Check codes for clarification**
- 
+* **Check codes for clarification**
