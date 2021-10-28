@@ -398,9 +398,10 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
 
 ![Access Levels](2021-10-27-13-54-39.png)
 
-### Inheritance
+## Inheritance
 
 > Java doesn't support multiple inheritance.
+> A class can't have more than 1 base class.
 
 * **Syntax**
 
@@ -417,7 +418,7 @@ accessSpecifier class derivedClass extends baseClass {
 * super : Invokes the base class constructor with the supplied arguments. **Must be the first line of derived class constructor**
 * When an object of child class is declared, then java automatically calls the constructor of the child class as well as that of the **Parent Class**. even if it isn't called by the programmer explicitly *Using super*.
 
-### Abstraction
+## Abstraction
 
 > Hiding details of implementation.
 
@@ -426,9 +427,69 @@ accessSpecifier class derivedClass extends baseClass {
 * Abstract class can also have concrete methods.
 * Abstract methods are declared without an implementation, it is the responsibility of child class which inherits the abstract method to define it.
 * The child class must provide definition of all the inherited abstract methods.
+* The abstract methods can only set a visibility modifier, one of public or protected.
 
 ```java
 abstract void moveTo(double deltaX, double deltaY);
 ```
 
 * **Check codes for clarification**
+
+## Interface
+
+> Interface defines the specifications of how a class is going to act/behave.
+> Interface is a reference type similar to a class
+
+* An interface can only contain :
+  * constants
+  * method signatures
+  * default methods
+  * static methods
+  * nested types.
+* Method bodies exists only for default methods and static methods.
+* An interface can't be instantiated.
+* It can be implemented by other classes or extended by other interfaces.
+* It doesn't require a constructor.
+* Difference between Abstract class and Interface :
+  * Abstract classes are less restrictive, interfaces are more restrictive.
+  * Interfaces are only for specifications.
+  * There can't be any concrete definition in interface.
+  * There can be function definition in Abstract classes.
+* @Override : Used to define functions inherited from Abstract classes or from interfaces.
+  
+```java
+interface Bicycle {
+ void applyBrake(int decrement);
+ void speedUp(int increment);
+}
+
+
+public class MountainBike implements Bicycle {
+ 
+  @Override
+  public void speedUp(int increment){
+    speed += increment;
+  }
+
+  @Override
+  public void applyBrake(int decrement){
+    speed -= decrement;
+  }
+
+}
+```
+
+## Multiple inheritance using interfaces
+
+![Diamond problem](2021-10-28-14-53-55.png)
+
+* A normal class can extend one base class and can implement any number of interfaces.
+* **extends keyword must come before implements.**
+
+```java
+public class DerivedClass extends ParentClass implements FirstInterface, SecondInterface {
+}
+```
+
+## Polymorphism
+
