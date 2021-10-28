@@ -6,6 +6,11 @@
   * for int it's 0.
 
 * If no constructor is defined by programmer then java provides a default constructor.
+* Dynamic Object Binding : if reference is of abstract class/ interface and object is of derived class.
+
+```java
+List<Integer> listObj = new ArrayList<>();
+```
 
 ## Data types
 
@@ -492,4 +497,21 @@ public class DerivedClass extends ParentClass implements FirstInterface, SecondI
 ```
 
 ## Polymorphism
+
+### Method Overloading
+
+Completely same as of cpp
+
+### Method Overriding
+
+> Defining a Method with the Same Signature as a Superclass's Method.
+
+![Defining a Method with the Same Signature as a Superclass's Method](2021-10-28-15-27-57.png)
+
+* Instance method : Regular method.
+* Override means that once you try to initialize the subclass object you'll be able ot invoke it's own overridden method rather than the superclass's instance method.
+* It's not allowed in java to override a static method of parent class.
+* Overriding of an instance method to a static method is not allowed.
+
+## Static keyword
 
