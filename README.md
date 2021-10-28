@@ -333,17 +333,6 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
   * Elements sorted according to their natural order.
   * System.out doesn't show the natural sorting order.
 
-## Classes and objects
-
-* Everything is exactly similar to cpp except for these two points.
-  * object creation is via **new** keyword.
-
-   ```java
-   className objectName = new className(constructorArguments);
-  ```
-
-  * accessSpecifier is needed for every method individually.
-  
 ## Streams
 
 >Concept similar to streaming Netflix rather than Downloading videos, more efficient in using multicore capability of processors.
@@ -393,3 +382,34 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
   ```java
   int sum = numList.stream.reduce(0, (prevSum, nextElement) -> prevSum + nextElement);
   ```
+
+## Classes and objects
+
+* Everything is exactly similar to cpp except for these two points.
+  * object creation is via **new** keyword.
+
+   ```java
+   className objectName = new className(constructorArguments);
+  ```
+
+  * accessSpecifier is needed for every method individually.
+  
+### Access Modifiers
+
+![Access Levels](2021-10-27-13-54-39.png)
+
+### Inheritance
+
+syntax
+
+```java
+accessSpecifier class derivedClass extends baseClass {
+  accessSpecifier derivedClass(parametersDerivedClass+parametersBaseClass){
+    super(parametersBaseClass) //invokes the base class constructor.
+
+  }
+}
+```
+
+* extends : Keyword used to derive class form base class.
+* super : Invokes the base class constructor with the supplied arguments. **Must be the first line of derived class constructor**
