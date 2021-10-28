@@ -400,7 +400,7 @@ int[][] arr = {{2, 7, 9}, {3, 6, 1}, {7, 4, 2}};
 
 ### Inheritance
 
-syntax
+* **Syntax**
 
 ```java
 accessSpecifier class derivedClass extends baseClass {
