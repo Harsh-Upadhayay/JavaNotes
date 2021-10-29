@@ -623,3 +623,20 @@ Bicycle bicycle = new Bicycle() {
 
 >A package is grouping of relative types (classes/interfaces/etc.)
 *No Keywords are allowed in package name.*
+
+## Methods
+
+* By default all arguments are passed by value in java.
+* When passing an obj to a method it's reference is passed by value, thus allowing to mutate the original object. **Still a copy of the passed reference is used, but as both the copy and original reference points to the same object, mutation is possible.**
+
+```java
+Student john = new Student("John", 25, "Address");
+changeNameInSameObject(john); //john reference is passed to function.
+System.out.println(john.getName()); //Prints jane.
+```
+
+```java
+changeNameInSameObject(Student student){
+  student.name = "Jane"; //object accessed by a copy of it's reference.
+}
+```
