@@ -618,3 +618,8 @@ Bicycle bicycle = new Bicycle() {
   //Other methods
 }
 ```
+
+## Packages
+
+>A package is grouping of relative types (classes/interfaces/etc.)
+*No Keywords are allowed in package name.*
