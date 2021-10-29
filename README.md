@@ -684,3 +684,36 @@ catch (ExceptionType2 |  ExceptionType3){
 finally {
   System.out.println("This block will always be executed, irrespective of whether there was an exception or not");
 }
+
+## equals() and hashCode()
+
+### Object Class
+
+> Object class is the root of the class hierarchy. Every class has Object as a superclass. All objects, including arrays, implement the methods of this class.
+
+* **Methods of object class**
+  ![Methods of object class](2021-10-30-01-10-48.png)
+
+* equals() : For any non-null reference values x and y, this method returns true if and only if x and y refer to the same object (x == y has the value true). **This might not always be the case**, *for eg if x and y refer to different objects which have equal values then logically the objects are equal, but this function will return false, because the references x and y points at different memory location in the memory.*
+
+* Overriding equals.
+
+```java
+ @Override
+ public boolean equals(Object obj) {  // Contract of equals method
+  if (this == obj)
+   return true;    // This is the definition of equals in Object class
+ 
+  if (obj == null || obj.getClass() != this.getClass())  // another method of Object class to return Class type of object.
+   return false;
+  
+  Student student = (Student) obj;  // casting Object class object obj to Student class object.
+  
+  return (student.rollNumber == this.rollNumber); // check equality based on roll number of students.
+ }
+
+ @Override
+ public int hashCode(Object obj){ //always change equals and hash code together.
+   return obj.rollNumber;
+ }
+```

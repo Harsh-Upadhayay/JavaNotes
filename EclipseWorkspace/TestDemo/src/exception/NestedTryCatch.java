@@ -19,7 +19,7 @@ public class NestedTryCatch {
 			} catch (ArrayIndexOutOfBoundsException E) {
 				
 				System.out.println("Exception in Block 2");
-				//throw E; // reThrows the exception (now it'll be caught by the first block).
+				throw E; // reThrows the exception (now it'll be caught by the first block).
 			
 			}
 		
