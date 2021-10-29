@@ -539,3 +539,61 @@ class Student {
 
 ## Nested Class
 
+### Static Nested Classes
+
+>Common sense.
+
+```java
+public class OuterClass {
+ 
+ static int outerStaticMember = 10;
+ int instanceMember = 20;
+ private static int outerPirvateMember = 30;
+ 
+ static class StaticNestedClass {
+  void display() {
+   System.out.println("Static member of outer class = " + outerStaticMember);
+   System.out.println("Private static member of outer class = " + outerPirvateMember);
+  }
+ }
+}
+```
+
+```java
+public static void main(String[] args) { 
+  OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+  nestedObject.display();
+ }
+```
+
+* *Had the display method been static then it could be called from the main without instantiating the StaticNestedClass*.
+
+```java
+public class OuterClass {
+ 
+ static int outerStaticMember = 10;
+ int instanceMember = 20;
+ private static int outerPirvateMember = 30;
+ 
+ static class StaticNestedClass {
+  static void display() {
+   System.out.println("Static member of outer class = " + outerStaticMember);
+   System.out.println("Private static member of outer class = " + outerPirvateMember);
+  }
+ }
+}
+```
+
+```java
+public static void main(String[] args) { 
+  OuterClass.StaticNestedClass.display();
+}
+```
+
+### Non Static Nested classes
+
+> Inner classes, both classes must be instantiated
+
+```java
+  OuterClass.StaticNestedClass nestedObject = new OuterClass().StaticNestedClass();
+```
