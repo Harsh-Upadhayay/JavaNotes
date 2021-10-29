@@ -590,10 +590,31 @@ public static void main(String[] args) {
 }
 ```
 
-### Non Static Nested classes
+### Non Static Nested Classes
 
 > Inner classes, both classes must be instantiated
 
 ```java
   OuterClass.StaticNestedClass nestedObject = new OuterClass().StaticNestedClass();
+```
+
+### Anonymous Inner Classes
+
+>When instantiation of **interfaces** is done then anonymous inner classes come into play.
+
+* The instance of the interface will have to define all the methods of the interface.
+
+* Instantiating Bicycle interface :
+
+```java
+
+Bicycle bicycle = new Bicycle() {
+
+  @Override
+  public void canSpeedUp(){
+    System.out.println("Definition of this method is local for this instance of Bicycle interface");
+  }
+  @Override
+  //Other methods
+}
 ```
