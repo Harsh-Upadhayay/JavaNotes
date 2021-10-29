@@ -513,5 +513,29 @@ Completely same as of cpp
 * It's not allowed in java to override a static method of parent class.
 * Overriding of an instance method to a static method is not allowed.
 
-## Static keyword
+## Static Members
+
+* Static variables should be accessed by a class.
+* Static keyword is used for those members which belong to the class, not to the object.
+* All objects gets the same copy of the static variable.
+* Also called class variables.
+* Static variables are initialized when the class is loaded in the JVM.
+* Static methods can only access static member variables of the class.
+* An instance method can access a static variable.
+* Static block : code which executes only once during the initialization of the program.
+
+```java
+class Student {
+  static {
+    System.out.println("initializer code");
+    String college = "XYZ";
+    int count = 0;
+  }
+  //other definitions.
+}
+```
+
+**All variable in the static block are static by default.**
+
+## Nested Class
 
