@@ -640,3 +640,47 @@ changeNameInSameObject(Student student){
   student.name = "Jane"; //object accessed by a copy of it's reference.
 }
 ```
+
+## Exceptions in Java
+
+![Throwable Hierarchy](2021-10-30-00-02-06.png)
+
+* Throwable is the root class for handling all types of exceptions and errors.
+* Java treats exceptions and errors differently.
+* Exception is recoverable by the developer. *Responsibility of developer.*
+* Errors are not recoverable by the developer. *Not responsibility of developer.
+* Runtime exception : Unchecked Exception. *IDE doesn't knows about these.*
+* All other : Checked exception. *If they occur then the IDE will notify.*
+* **throw** : Used to throw exception from the code.
+  
+### Custom Exceptions
+
+* Checked exception by default.
+* Extends form exception class.
+
+```java
+class MyException(){
+  
+  MyException(){
+
+  }
+}
+```
+
+### Exception Handling
+
+> Done by using try catch block.
+
+``java
+try {
+  Suspicious Code
+}
+catch (ExceptionType1 E1){
+  System.out.println("Caught first type of exception : " +E1.getMessage());
+}
+catch (ExceptionType2 |  ExceptionType3){
+  System.out.println("Caught second or third type of exception);
+}
+finally {
+  System.out.println("This block will always be executed, irrespective of whether there was an exception or not");
+}
