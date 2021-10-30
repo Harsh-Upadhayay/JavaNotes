@@ -731,3 +731,68 @@ finally {
       * If there are multiple objects present at that location *(Collision in hashTable)* then java is going to use the equals() method to find the exact matching object.
   * Therefore both hashCode() and equals() are being used to point at the right memory location. **So always override equals() and hashCode() together.**
   * The equals() contract and the hashCode() contract both should use the same parameters to assert equality.
+
+## Comparable Interface
+
+>Provides comparing capabilities to custom objects.
+
+* Standard definition
+
+```java
+public interface Comparable <T> {
+  int compareTo(T o1, T o2);
+}
+```
+
+* Allows Collection.sort() to run on custom objects.
+* Single **compareTo()** method is present in this interface.
+  
+```java
+class className implements Comparable<ClassType> {  //in classType className'll come.
+
+  @Override
+  public int compareTo(ClassType otherObject) {
+    // TODO Auto-generated method stub
+    int compareContract = this.parameterUsedToCompare - otherObject.parameterUsedToCompare;
+    return compareContract;
+  }
+}
+```
+
+* compareContract :
+  * if positive then this object will be given priority.
+  * if negative then otherObject will be giver priority.
+  * if zero then both will be treated equally.
+
+### Comparator interface
+
+>Provides multiple comparing capabilities to custom objects.
+
+* Standard definition
+
+```java
+public interface Comparator <T> {
+  int compare(T o1, T o2);
+}
+```
+
+* Allows Collections.sort() to run on custom objects.
+* Passed as second argument of **Collections.sort(Collection, new ParameterComparator())**.
+* Single **compare()** method is present in this interface.
+  
+```java
+
+public class NameComparatot implements Comparator<Student>{
+
+ @Override
+ public int compare(Student o1, Student o2) {
+  // TODO Auto-generated method stub
+  return o1.getName().compareTo(o2.getName()); // compareTo implemented by default for strings in java.
+ }
+}
+```
+
+* compareContract :
+  * if positive then this object will be given priority.
+  * if negative then otherObject will be giver priority.
+  * if zero then both will be treated equally.
