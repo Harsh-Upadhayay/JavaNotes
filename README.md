@@ -685,18 +685,19 @@ finally {
   System.out.println("This block will always be executed, irrespective of whether there was an exception or not");
 }
 
-## equals() and hashCode()
-
-### Object Class
+## Object Class
 
 > Object class is the root of the class hierarchy. Every class has Object as a superclass. All objects, including arrays, implement the methods of this class.
 
 * **Methods of object class**
   ![Methods of object class](2021-10-30-01-10-48.png)
 
-* equals() : For any non-null reference values x and y, this method returns true if and only if x and y refer to the same object (x == y has the value true). **This might not always be the case**, *for eg if x and y refer to different objects which have equal values then logically the objects are equal, but this function will return false, because the references x and y points at different memory location in the memory.*
+### equals() and hashCode()
+
+* equals() : For any non-null reference values x and y, this method returns true if and only if x and y refer to the same object (x == y has the value true). **This might not always be the case**, *for eg if x and y refer to different objects whose attributes have equal values then logically the objects are equal, but this function will return false because the references x and y points at different memory location in the memory.*
 
 * Overriding equals.
+  * To fix the problem stated above, each class should override it's own equal() method as shown below, **When equal() is overridden then hashCode() should also be overridden.**
 
 ```java
  @Override
@@ -717,3 +718,16 @@ finally {
    return obj.rollNumber;
  }
 ```
+
+* hashCode()
+  * Java maintains uniqueness *(In hashSet/hashMap)* using both equals() and hashCode().
+  * HashCode is a memory bucket. (hashCode bucket *array index*).
+  * Whenever you are dealing with hashMap or hashSet, you will be required to override both these methods.
+  * Working of **hashSet** *(Collection)*
+    * Inserting : Whenever an element is inserted in hashSet, then first java uses the **equals()** method to check whether an object similar to the to be inserted object is already present in the hashSet. If equals() return true then java doesn't insert the object.
+    * Fetching *hashSet.contains()/ hashSet.get()* :
+      * First java calculates the hashCode of the object using hashCode(), and the way it's going to calculate the hashCode is going to be based on the definition you have provided.
+      * The hashCode will give the memory footprint *(Maybe the arrayIndex of the hashBucket)* of the object then it goes to that memory location to check whether there is a object present there or not.
+      * If there are multiple objects present at that location *(Collision in hashTable)* then java is going to use the equals() method to find the exact matching object.
+  * Therefore both hashCode() and equals() are being used to point at the right memory location. **So always override equals() and hashCode() together.**
+  * The equals() contract and the hashCode() contract both should use the same parameters to assert equality.
