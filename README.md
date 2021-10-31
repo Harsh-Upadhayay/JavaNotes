@@ -56,6 +56,13 @@
 List<Integer> listObj = new ArrayList<>();
 ```
 
+- Variable argument array : varArg expression : array of arbitrary length, depends on the passed argument
+
+```java
+int result(int... num); //num is varArg array.
+```
+
+
 ## Data types
 
 ### Primitive Data types
