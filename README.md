@@ -62,7 +62,6 @@ List<Integer> listObj = new ArrayList<>();
 int result(int... num); //num is varArg array.
 ```
 
-
 ## Data types
 
 ### Primitive Data types
