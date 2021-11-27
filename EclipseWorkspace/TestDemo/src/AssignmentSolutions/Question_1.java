@@ -99,7 +99,7 @@ class Audi extends Car{
 	
 
 	void display() {
-		System.out.println( "\nCar's Mielage : " + mileage + 
+		System.out.println( "\nCar's Mileage : " + mileage + 
 							"\nCar's Price : " + price +
 							"\nCar's ownership cost : " + ownershipCost +
 							"\nCar's warranty : " + warranty + 
@@ -130,7 +130,7 @@ class Ford extends Car{
 	}
 	
 	void display() {
-		System.out.println( "\nCar's Mielage : " + mileage + 
+		System.out.println( "\nCar's Mileage : " + mileage + 
 							"\nCar's Price : " + price +
 							"\nCar's ownership cost : " + ownershipCost +
 							"\nCar's warranty : " + warranty + 
@@ -209,7 +209,7 @@ class Tvs extends Bike{
 	}
 	
 	void display() {
-		System.out.println( "\nBike's Mielage : " + mileage + 
+		System.out.println( "\nBike's Mileage : " + mileage + 
 							"\nBike's Price : " + price +
 							"\nBike's cylinders : " + cylinders +
 							"\nBike's gears : " + gears + 
@@ -240,7 +240,7 @@ class Bajaj extends Bike{
 	
 
 	void display() {
-		System.out.println( "\nBike's Mielage : " + mileage + 
+		System.out.println( "\nBike's Mileage : " + mileage + 
 							"\nBike's Price : " + price +
 							"\nBike's cylinders : " + cylinders +
 							"\nBike's gears : " + gears + 

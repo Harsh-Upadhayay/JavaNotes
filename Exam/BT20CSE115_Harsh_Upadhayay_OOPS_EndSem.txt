@@ -1,0 +1,603 @@
+				End Semester Examination
+
+ 
+
+	Name: Harsh Upadhayay                             Enrollment Number: BT20CSE115
+
+	Branch: Computer Science and Engineering          Semester: Third
+
+	Course Title: Object Oriented Programming         Course Code: CSL202
+
+	Date: 26/11/2021                                  Number of sheets used: 1
+
+
+
+
+**********************************************************************************************************************************************************************************************************************************
+QUE 1
+/*
+Write a java class MyStack in file MyStack.java that implements stack with following methods. – 
+
+1. public void push(E item) : Pushes the item onto the top of the stack. 
+
+2. public E pop() : Removes the element at the top of the stack and returns it. Throw EmptyStackException if the stack is empty. 
+
+3.  public E peek() : Returns the top element without removing from top of the stack. Throw EmptyStackException if the stack is empty. 
+
+4. The program should throw an exception if the stack is empty and the peek or pop function is called.
+
+All other methods or variables in your implementation should be private. 
+*/
+
+package Exam;
+
+import java.util.Scanner;
+
+class MyStack extends RuntimeException
+{
+	
+	private static final Exception StackFullException = null;
+	private static final Exception StackEmptyException = null;
+	private int elements[]=new int[10];
+	private int top;
+	
+	MyStack()
+	{
+		top = -1;        // -1 used to show empty stack
+	}
+
+	public void push(int item) throws Exception  
+	{
+	if(top == 10)                      
+		{
+		throw StackFullException;
+		}
+		else
+		{
+		 elements[++top] = item;
+		}
+	}
+	
+	public int pop() throws Exception	
+	{
+		if(top<0)
+		{
+			throw StackEmptyException;
+		}
+		else
+			return elements[top--];
+	}
+	
+	private boolean isEmpty() 
+	{
+		return (top == -1);
+	}
+	
+	public int peek() throws Exception
+	{
+		if (top == -1) throw StackEmptyException;
+		else return elements[top];
+	}
+	
+	public void printStack()		//for printing the stack contains
+	{
+		int value=0;
+		
+		if(!isEmpty())
+		{
+			try {
+				value = pop();
+			} catch (Exception stackEmpty) {
+				System.out.println("Stack empty Exception Occured");
+				stackEmpty.printStackTrace();
+			}
+			System.out.println(value);
+			printStack();
+		}
+		try {
+			push(value);
+		} catch (Exception StackFull) {
+			System.out.println("Stack FUll Exception Occured");
+			StackFull.printStackTrace();
+		}
+	}
+	
+	
+	
+	// Main
+	public static void main(String[] args) 
+	{
+								  
+		MyStack ob1=new MyStack();           
+		int choice;
+		Scanner s = new Scanner(System.in);    
+
+		while(true)
+		{
+			System.out.println("ente your choice");
+			System.out.println("1 to Push");
+			System.out.println("2 to pop");
+			System.out.println("3 to peek");
+			System.out.println("4 to exit");
+			choice = s.nextInt();							
+			switch(choice)
+			{
+			case 1: System.out.println("Enter your element :");
+				try {
+					ob1.push(s.nextInt());
+				} catch (Exception e) {
+					System.out.println("Stack Full Exception Occured");
+					e.printStackTrace();
+				}                  
+					break;
+
+			case 2: try {
+					System.out.println("popped element  "+ ob1.pop());
+				} catch (Exception e) {
+					System.out.println("Stack empty Exception Occured");
+					e.printStackTrace();
+				}
+					break;
+
+			case 3: System.out.println("stack element is ");
+				try {
+					ob1.peek();
+				} catch (Exception e) {
+					System.out.println("Stack empty Exception Occured");
+					e.printStackTrace();
+				}
+					break;
+			default: System.out.println("Good Bye"); 
+					return ;
+
+			}
+		
+		}
+		
+	}
+
+};
+
+
+
+******************************************************************************************************************************************************************************************************************************
+
+
+
+**********************************************************************************************************************************************************************************************************************************
+QUE 2.
+/*
+WAP in C++ or Java for the following:- 
+
+Students of the Department of Mathematics and Mechanics enjoy buying modern devices. Not having much money, they buy new devices rarely but expertly. They trust their friends’ opinion and choose a device of the type that the greatest number of their friends have. If there are several such devices, the students choose the cheapest of them. 
+
+Student Arnav is no exception. He has questioned his six friends and now wants to choose a new device according to the above rule. Note that the friends could buy the same device in different places at different prices, and Arnav can buy this device at the smallest price. The details of the names, devices and cost is to be stored as a node in the linked list.
+
+Input
+
+The input contains descriptions of devices of six friends. Each description is in three lines. You are given the name of a friend in the first line, the name of this friend’s device in the second line, and the price of the device in the third line.
+
+All the words are strings of size from 1 to 20 characters. The friends’ names contain only lowercase English letters, and the names of the devices consist of lowercase English letters and digits. The price is an integer from 1 to 106. Throw an exception/error if the number entered is out of range. The names of the friends may coincide.
+
+Output
+
+In the only line output the name of the device in possession of the greatest number of friends. If there are several such devices, output the name of the cheapest of them. If there are again several such devices, output the name of any of them.  
+*/
+
+
+#include<iostream>
+#include<stdlib.h>
+#include <map>
+#include <climits>
+
+using namespace std;
+
+
+// One node of linked list
+struct student{
+    string friendName;
+    string DeviceName;
+    int cost;
+    student *next;  // pointer to next student node of linked list
+};
+
+student* createNode(string name, string device, int cost){
+    student *newStud = (student*) malloc(sizeof(student));
+    newStud->friendName = name;
+    newStud->DeviceName = device;
+    newStud->cost = cost;
+    newStud->next = NULL;
+    return newStud;
+}
+
+int main(){
+    string name, device;
+    int cost;
+    student *headNode = NULL, *curNode = NULL;
+    map <string, int> DevicesFrequency;
+    int maxFreq = INT_MIN;
+    string maxDevice;
+
+    for(int i = 0; i < 6; i++){
+        cin>>name>>device>>cost;
+        DevicesFrequency[device]++;   // a map between device name and no. of friends owning it;
+
+        if(DevicesFrequency[device] > maxFreq){
+            maxFreq = DevicesFrequency[device];
+            maxDevice = device;
+        }
+
+        if(NULL == headNode) 
+            headNode = curNode = createNode(name, device, cost);  //creating first node;
+        else{
+            curNode->next = createNode(name, device, cost); //appending to linked list;
+            curNode = curNode->next;  //moving forward in linked list
+        }
+    }
+    
+    curNode = headNode;
+    int minDevCost = INT_MAX;
+
+    //finding the device with min cost
+    while(curNode){
+        if(curNode->DeviceName == maxDevice && curNode->cost < minDevCost)
+            minDevCost = curNode->cost;
+
+        curNode = curNode->next;
+    }
+
+    cout<<"Device with minimum cost = "<<minDevCost;
+}
+******************************************************************************************************************************************************************************************************************************
+
+
+
+**********************************************************************************************************************************************************************************************************************************
+Question 3 :
+package Exam.Calculate;
+
+public class Sum {
+	private int finalSum;
+	
+	public Sum(int n) {
+		finalSum = 0;
+		for(int i = 1; i <= n; i++)
+			for(int j = 1; j <= i; j++)
+				finalSum += j; 
+	}
+	
+	public int getSum() {
+		return finalSum;
+	}
+}
+package Exam.Number;
+
+public class Check {
+	private int value;
+	
+	public Check(int value) {
+		this.value = value;
+	}
+	
+	public boolean isZero() {
+		return (0 == value);
+	}
+	
+	public boolean isPositive() {
+		if(value < 0)
+			return false;
+		else return true;
+	}
+	
+	public boolean isNegative() {
+		return !isPositive();
+	}
+	public boolean isOdd() {
+		
+		if (value%2 == 1)
+			return true;
+		else return false;
+	}
+	public boolean isEven() {
+		return !isOdd();
+	}
+	
+	public boolean isPrime() {
+		for(int i = 2; i <= value*value; i++)
+			if(value % i == 0)
+				return false;
+		return true;
+	}
+}
+
+/*
+Write a java program to create a class Sum inside a package name Calculate which performs the sum of the following series
+
+1 + (1+2) + (1+2+3) + (1+2+3+4) + …… + (1+2+3+4+…+n)
+
+ Create another package Number having the class Check with only one variable as a primitive type which includes the following methods isZero( ), isPositive(), isNegative( ), isOdd( ), isEven( ) and isPrime(). Import these packages into a demo java program to demonstrate the usage of  user-defined packages.
+*/
+
+import Exam.Calculate.Sum; //defined in  it's own package
+import Exam.Number.Check; //defined in it's own package
+import java.util.*;
+
+public class demo {
+	public static void main(String args[]){
+		Sum sumObj = new Sum(50);
+		System.out.println(sumObj.getSum());
+		
+		Check checkObj = new Check(555);
+		System.out.print(checkObj.isZero() , checkObj.isEven());
+
+	}
+}
+
+******************************************************************************************************************************************************************************************************************************
+
+
+
+**********************************************************************************************************************************************************************************************************************************
+Question 4 :
+/*
+Assume that there is an entity called Employee that represents a general or basic employee in the real world. There are employees that are Fulltime (Regular) Employees and employees that work on contract. Write a Java program that demonstrates the above scenario. There should be three classes in the program that defines various Employees including the basic Employee. The types of employees should be constructed from the already constructed basic Employee. Define a function that differentiates the Employees. What is the concept that best describes the above scenario in Java? Assume appropriate data types and function for this example.
+*/
+
+package Exam;
+import java.util.*;
+
+abstract public class basicEmployee{
+	String name;
+	String Job, Company;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getJob() {
+		return Job;
+	}
+	public void setJob(String job) {
+		Job = job;
+	}
+	public String getCompany() {
+		return Company;
+	}
+	public void setCompany(String company) {
+		Company = company;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	int salary;
+	abstract void Employeetype();
+}
+
+
+public class fullTime extends basicEmployee{
+	float DA;
+	int leaves;
+	void Employeetype() {
+		System.out.println("I'M a Full time Employee");
+	}
+	public float getDA() {
+		return DA;
+	}
+	public void setDA(float dA) {
+		DA = dA;
+	}
+	public int getLeaves() {
+		return leaves;
+	}
+	public void setLeaves(int leaves) {
+		this.leaves = leaves;
+	}
+}
+
+public class partTime extends basicEmployee{
+
+	int minimumWorkingHours;
+	public int getMinimumWorkingHours() {
+		return minimumWorkingHours;
+	}
+	public void setMinimumWorkingHours(int minimumWorkingHours) {
+		this.minimumWorkingHours = minimumWorkingHours;
+	}
+	@Override
+	void Employeetype() {
+		System.out.println("I'm a partTime employee");
+	}
+	
+}
+
+
+
+
+
+
+
+******************************************************************************************************************************************************************************************************************************
+
+
+
+**********************************************************************************************************************************************************************************************************************************
+Question 1 :
+
+
+******************************************************************************************************************************************************************************************************************************
+
+
+
+**********************************************************************************************************************************************************************************************************************************
+Question 6 :
+/*
+Write a C++ program to create a class Student having data members student roll no., name , age and percentage and a Test class (derived class of Student) representing the scores of the student  in  various  subjects  and  Sports  class  representing  the  score  in sports.  The Sports  and  Test class  should  be inherited  by a Result class having the functionality to add the scores, calculate the percentage. Maintain the records of student with details and find the student with highest percentage among the students. The number of students should be entered by the user at runtime.*/
+
+
+
+#include<iostream>  
+using namespace std;
+
+class Student
+{ 
+
+    protected: 
+        int Roll;
+        string Name;
+        int Age;
+        float Percentage;
+  
+    public: 
+        void Input_Student_Details()
+        {
+            cout<<"Enter student Details\n";
+            cout<<"Enter the Student Name: ";
+            cin>>Name;
+            cout<<"Enter yhe Roll no: ";
+            cin>>Roll;
+            cout<<"Enter the Age : ";
+            cin>>Age;
+        }
+        
+        void Output_Student_Detail()
+        {
+            cout<<"Student's Name : "<<Name<<endl;
+            cout<<"Student's Roll No : "<<Roll<<endl;
+            cout<<"Student's Age : "<<Age<<endl;
+        }
+}; 
+
+ 
+
+class test : public Student 
+{ 
+    protected: 
+
+        float Sub1 , Sub2 , Sub3 , Sub4 , Sub5;
+
+  
+    public:
+    
+        void Input_marks() 
+        {
+            cout<<"Input the marks of the 5 subjects\n";
+            cout<<"Enter Subject1 Marks: ";
+            cin>>Sub1;
+            cout<<"Enter Subject2 Marks: ";
+            cin>>Sub2;
+            cout<<"Enter Subject3 Marks: ";
+            cin>>Sub3;
+            cout<<"Enter Subject4 Marks: ";
+            cin>>Sub4;
+            cout<<"Enter Subject5 Marks: ";
+            cin>>Sub5;
+            cout<<endl;
+        } 
+        void Output_marks() 
+        { 
+    
+            cout<<"Marks obtained in the 5 Subjects are as below"<<"\n";
+            cout<<"Subject1 Marks = "<<Sub1<<"\n" ;
+            cout<<"Subject2 Marks = "<<Sub2<<"\n" ;
+            cout<<"Subject3 Marks = "<<Sub3<<"\n" ;
+            cout<<"Subject4 Marks = "<<Sub4<<"\n" ;
+            cout<<"Subject5 Marks = "<<Sub5<<"\n" ;
+        } 
+
+}; 
+
+class sports 
+{ 
+    protected: 
+        float Sport; 
+
+  
+    public: 
+        void Input_Sports_score() 
+        {
+            cout<<"Enter Marks in Sports : \n";
+            cin>>Sport;
+        }
+        void Output_Sports_score(void)
+        { 
+            cout<<"Marks in Sport: "<<Sport<<"\n"; 
+        } 
+};
+
+
+class result : public test, public sports 
+{ 
+
+    float total; 
+    public: 
+        void display(void);
+        float percent();
+
+}; 
+
+ 
+void result :: display() 
+{
+    total = Sub1 + Sub2 + Sub3 + Sub4 + Sub5 + Sport ;
+    Percentage = ( total / 600 ) * 100 ;
+
+    Output_Student_Detail();
+    Output_marks(); 
+    Output_Sports_score(); 
+ 
+
+    cout<<"Total Score:"<<total<<"\n"; 
+    cout<<"Percentage: "<<Percentage<<endl;
+
+} 
+
+float result :: percent()
+{
+    total = Sub1 + Sub2 + Sub3 + Sub4 + Sub5 + Sport ;
+    Percentage = ( total / 600 ) * 100 ;
+    return Percentage;
+}
+
+
+int main() 
+{
+    int Number;
+    cout<<"Enter the Number of students : ";
+    cin>>Number;
+    cout<<"\n";
+    result Arr[Number];
+    float Var = 0.0;
+    float Maxx = 0.0;
+    result Top;
+    int i = 0;
+    while(Number--)
+    {
+        result students;
+        students.Input_Student_Details();
+        students.Input_marks(); 
+        students.Input_Sports_score ();
+        Var = students.percent();
+        //students.display (); 
+        Arr[i] = students;
+        if(Var >= Maxx)
+        {
+            Maxx = Var;
+            Top = students; 
+        }
+        i++;
+        cout<<"\n";
+    }
+    Top.display();
+
+    result Stu; 
+    
+    return 0; 
+
+}
+
+
+******************************************************************************************************************************************************************************************************************************
